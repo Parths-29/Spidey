@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spidey – Friendly Neighbourhood Web Crawler</title>
+  <meta name="description" content="Spidey is a modern, dependency-light Ruby web-crawler gem. Include it in any class, define crawlers, and explore the web." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav id="navbar" class="nav glass">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Spidey home">
+        <span class="spider-icon" aria-hidden="true">🕷</span>
+        <span class="logo-text">Spidey</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#docs">Docs</a></li>
+        <li>
+          <a href="https://github.com/Parths-29/Spidey" target="_blank" rel="noopener" class="btn btn-outline btn-sm" id="nav-github-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="hero">
+    <div class="web-bg" aria-hidden="true">
+      <canvas id="web-canvas"></canvas>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Ruby Gem · v1.0.0 · MIT License
+      </div>
+      <h1 class="hero-title">
+        <span class="gradient-text">Spidey</span><br/>
+        <span class="hero-subtitle-line">Your Friendly Neighbourhood</span><br/>
+        <span class="hero-subtitle-line accent">Web Crawler 🕷</span>
+      </h1>
+      <p class="hero-desc">
+        A modern, zero-bloat Ruby gem for crawling and processing web pages.
+        Elegant DSL, built-in retry logic, ActiveJob support, and blazing fast.
+      </p>
+      <div class="hero-actions">
+        <a href="#usage" class="btn btn-primary" id="get-started-btn">Get Started</a>
+        <a href="https://github.com/Parths-29/Spidey" target="_blank" rel="noopener" class="btn btn-ghost" id="view-github-btn">
+          View on GitHub →
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">0</span>
+          <span class="stat-label">Dependencies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">Ruby 3+</span>
+          <span class="stat-label">Compatible</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">MIT</span>
+          <span class="stat-label">Licensed</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-logo-wrap">
+      <div class="hero-logo-glow"></div>
+      <img src="assets/logo.jpg" alt="Spidey crawler logo" class="hero-logo" width="400" height="400" />
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section id="features" class="section features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Why Spidey?</span>
+        <h2 class="section-title">Everything you need.<br/>Nothing you don't.</h2>
+        <p class="section-desc">Built for modern Ruby projects with clean architecture, sensible defaults, and a powerful DSL.</p>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card" tabindex="0">
+          <div class="feature-icon">⚡</div>
+          <h3>Elegant DSL</h3>
+          <p>Define crawlers with intuitive <code>crawl</code> and <code>process</code> blocks. Readable and maintainable by design.</p>
+        </article>
+        <article class="feature-card" tabindex="0">
+          <div class="feature-icon">🔄</div>
+          <h3>Auto Retry</h3>
+          <p>Configurable retry logic with exponential backoff. Your crawlers survive network blips gracefully.</p>
+        </article>
+        <article class="feature-card" tabindex="0">
+          <div class="feature-icon">🚀</div>
+          <h3>ActiveJob Ready</h3>
+          <p>Drop-in support for Rails ActiveJob. Each page request becomes a background job automatically.</p>
+        </article>
+        <article class="feature-card" tabindex="0">
+          <div class="feature-icon">🎯</div>
+          <h3>Nokogiri Powered</h3>
+          <p>Every response is a full Nokogiri document. Use <code>.css()</code>, <code>.xpath()</code>, and <code>.links()</code> out of the box.</p>
+        </article>
+        <article class="feature-card" tabindex="0">
+          <div class="feature-icon">⚙️</div>
+          <h3>Rate Limiting</h3>
+          <p>Be a good citizen. Configure requests per second to avoid hammering servers.</p>
+        </article>
+        <article class="feature-card" tabindex="0">
+          <div class="feature-icon">🧬</div>
+          <h3>Inheritance</h3>
+          <p>Build base crawlers with shared config. Subclass and extend with custom behaviour per site.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== USAGE ========== -->
+  <section id="usage" class="section usage">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Quick Start</span>
+        <h2 class="section-title">Up and crawling<br/>in minutes.</h2>
+      </div>
+
+      <div class="tabs" id="code-tabs" role="tablist" aria-label="Code examples">
+        <button class="tab active" id="tab-install" role="tab" aria-selected="true" aria-controls="panel-install">Install</button>
+        <button class="tab" id="tab-basic" role="tab" aria-selected="false" aria-controls="panel-basic">Basic Crawler</button>
+        <button class="tab" id="tab-rails" role="tab" aria-selected="false" aria-controls="panel-rails">Rails + ActiveJob</button>
+        <button class="tab" id="tab-config" role="tab" aria-selected="false" aria-controls="panel-config">Configuration</button>
+      </div>
+
+      <div class="code-panels">
+
+        <div class="code-panel active" id="panel-install" role="tabpanel" aria-labelledby="tab-install">
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">bash</span>
+              <button class="copy-btn" data-target="code-install" aria-label="Copy install code">Copy</button>
+            </div>
+            <pre><code id="code-install"># Add to your Gemfile
+gem 'spidey'
+
+# Or install directly
+gem install spidey</code></pre>
+          </div>
+        </div>
+
+        <div class="code-panel" id="panel-basic" role="tabpanel" aria-labelledby="tab-basic" hidden>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">ruby</span>
+              <button class="copy-btn" data-target="code-basic" aria-label="Copy basic crawler code">Copy</button>
+            </div>
+            <pre><code id="code-basic">require 'spidey'
+
+class HackerNewsCrawler
+  include Spidey
+
+  crawl "https://news.ycombinator.com/" do |response|
+    response.css('a.titlelink').each do |a|
+      process! a['href'], :story
+    end
+  end
+
+  process :story do |response|
+    puts "#{response.uri} — #{response.title}"
+    save_story(response)
+  end
+
+  private
+
+  def save_story(response)
+    # Your persistence logic here
+  end
+end
+
+# Fire it up!
+HackerNewsCrawler.crawl!</code></pre>
+          </div>
+        </div>
+
+        <div class="code-panel" id="panel-rails" role="tabpanel" aria-labelledby="tab-rails" hidden>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">ruby</span>
+              <button class="copy-btn" data-target="code-rails" aria-label="Copy Rails code">Copy</button>
+            </div>
+            <pre><code id="code-rails">class ProductCrawler < ApplicationJob
+  queue_as :crawlers
+
+  include Spidey
+
+  crawl "https://shop.example.com/products" do |response|
+    response.css('a.product-link').each do |a|
+      process! response.resolve(a['href']), :product
+    end
+  end
+
+  process :product do |response|
+    Product.create!(
+      url:   response.uri.to_s,
+      title: response.css('h1').first&.text,
+      price: response.css('.price').first&.text
+    )
+  end
+end
+
+# Enqueue all crawlers
+ProductCrawler.crawl!</code></pre>
+          </div>
+        </div>
+
+        <div class="code-panel" id="panel-config" role="tabpanel" aria-labelledby="tab-config" hidden>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">ruby</span>
+              <button class="copy-btn" data-target="code-config" aria-label="Copy config code">Copy</button>
+            </div>
+            <pre><code id="code-config">Spidey.configure do |config|
+  # Custom logger
+  config.logger = Logger.new("log/spidey.log", level: :debug)
+
+  # Requests per second (rate limiting)
+  config.rate_limit = 2
+
+  # HTTP timeout in seconds
+  config.request_timeout = 15
+
+  # Auto-retry failed requests
+  config.max_retries  = 3
+  config.retry_delay  = 1.0   # exponential backoff
+
+  # Custom headers sent with every request
+  config.default_headers = {
+    "User-Agent" => "MyBot/1.0 (contact@example.com)"
+  }
+end</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LIVE DEMO DASHBOARD ========== -->
+  <section id="dashboard" class="section dashboard-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Live Demo</span>
+        <h2 class="section-title">Crawler Dashboard</h2>
+        <p class="section-desc">Simulate a crawl run and watch Spidey work in real time.</p>
+      </div>
+
+      <div class="dashboard">
+        <!-- Control Panel -->
+        <div class="dash-panel dash-controls glass">
+          <h3 class="panel-title">Crawler Config</h3>
+          <div class="form-group">
+            <label for="demo-url">Start URL</label>
+            <input type="url" id="demo-url" class="form-input" value="https://news.ycombinator.com" placeholder="https://example.com" />
+          </div>
+          <div class="form-group">
+            <label for="demo-depth">Max Depth</label>
+            <input type="number" id="demo-depth" class="form-input" value="2" min="1" max="5" />
+          </div>
+          <div class="form-group">
+            <label for="demo-rate">Rate Limit (req/s)</label>
+            <input type="number" id="demo-rate" class="form-input" value="3" min="1" max="10" />
+          </div>
+          <div class="form-group">
+            <label for="demo-selector">CSS Selector</label>
+            <input type="text" id="demo-selector" class="form-input" value="a[href]" placeholder="a[href]" />
+          </div>
+          <button class="btn btn-primary btn-full" id="start-demo-btn">
+            <span id="demo-btn-text">▶ Start Crawl</span>
+          </button>
+          <button class="btn btn-outline btn-full" id="reset-demo-btn" style="margin-top:0.5rem;">✕ Reset</button>
+        </div>
+
+        <!-- Stats -->
+        <div class="dash-panel dash-stats glass">
+          <h3 class="panel-title">Live Stats</h3>
+          <div class="stats-grid">
+            <div class="stat-card" id="stat-requests">
+              <div class="stat-card-num" id="val-requests">0</div>
+              <div class="stat-card-label">Requests</div>
+              <div class="stat-card-bar"><div class="stat-card-fill" id="fill-requests" style="width:0%"></div></div>
+            </div>
+            <div class="stat-card" id="stat-success">
+              <div class="stat-card-num green" id="val-success">0</div>
+              <div class="stat-card-label">Successful</div>
+              <div class="stat-card-bar"><div class="stat-card-fill green" id="fill-success" style="width:0%"></div></div>
+            </div>
+            <div class="stat-card" id="stat-errors">
+              <div class="stat-card-num red" id="val-errors">0</div>
+              <div class="stat-card-label">Errors</div>
+              <div class="stat-card-bar"><div class="stat-card-fill red" id="fill-errors" style="width:0%"></div></div>
+            </div>
+            <div class="stat-card" id="stat-links">
+              <div class="stat-card-num purple" id="val-links">0</div>
+              <div class="stat-card-label">Links Found</div>
+              <div class="stat-card-bar"><div class="stat-card-fill purple" id="fill-links" style="width:0%"></div></div>
+            </div>
+          </div>
+          <div class="elapsed-wrap">
+            <span class="elapsed-label">Elapsed</span>
+            <span class="elapsed-val" id="elapsed-time">00:00</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+            </div>
+            <span class="progress-pct" id="progress-pct">0%</span>
+          </div>
+        </div>
+
+        <!-- Log Output -->
+        <div class="dash-panel dash-log glass">
+          <div class="log-header">
+            <h3 class="panel-title">Crawler Log</h3>
+            <button class="btn btn-sm btn-outline" id="clear-log-btn" aria-label="Clear log">Clear</button>
+          </div>
+          <div class="log-output" id="log-output" role="log" aria-live="polite" aria-label="Crawler log output">
+            <div class="log-placeholder">
+              <span class="spider-spin" aria-hidden="true">🕷</span>
+              <span>Start a crawl to see live output…</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Graph / URL Map -->
+        <div class="dash-panel dash-graph glass">
+          <h3 class="panel-title">URL Map</h3>
+          <canvas id="graph-canvas" aria-label="Visual URL graph" role="img"></canvas>
+          <div class="graph-legend">
+            <span class="legend-dot green"></span> Crawled
+            <span class="legend-dot blue" style="margin-left:1rem"></span> Queued
+            <span class="legend-dot red" style="margin-left:1rem"></span> Error
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOCS ========== -->
+  <section id="docs" class="section docs-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Reference</span>
+        <h2 class="section-title">API Reference</h2>
+      </div>
+      <div class="docs-grid">
+        <div class="doc-card glass">
+          <h3>Module Methods</h3>
+          <ul class="api-list">
+            <li><code>Spidey.configure { |c| }</code> — Block-style configuration</li>
+            <li><code>Spidey.run</code> — Run all registered crawlers</li>
+            <li><code>Spidey.list</code> — Array of all crawler classes</li>
+            <li><code>Spidey.find("name")</code> — Find a crawler by name</li>
+          </ul>
+        </div>
+        <div class="doc-card glass">
+          <h3>Class DSL</h3>
+          <ul class="api-list">
+            <li><code>.crawl(url) { |r| }</code> — Register start URLs</li>
+            <li><code>.process(:type) { |r| }</code> — Named processors</li>
+            <li><code>.crawl!</code> — Kick off crawling</li>
+          </ul>
+        </div>
+        <div class="doc-card glass">
+          <h3>Instance Methods</h3>
+          <ul class="api-list">
+            <li><code>#process!(url, type)</code> — Process a URL</li>
+            <li><code>#perform(url, type)</code> — Synchronous request+handle</li>
+            <li><code>#crawl!</code> — Run all start URLs</li>
+          </ul>
+        </div>
+        <div class="doc-card glass">
+          <h3>Response Object</h3>
+          <ul class="api-list">
+            <li><code>.css(selector)</code> — Nokogiri CSS query</li>
+            <li><code>.links(selector?)</code> — Extract all URLs</li>
+            <li><code>.title</code> — Page title string</li>
+            <li><code>.resolve(href)</code> — Absolute URL resolution</li>
+            <li><code>.success? / .error?</code> — Status helpers</li>
+          </ul>
+        </div>
+        <div class="doc-card glass">
+          <h3>Configuration Keys</h3>
+          <ul class="api-list">
+            <li><code>logger</code> — Ruby Logger instance</li>
+            <li><code>request_timeout</code> — Seconds (default: 30)</li>
+            <li><code>max_retries</code> — Retry count (default: 3)</li>
+            <li><code>rate_limit</code> — Req/s (default: nil)</li>
+            <li><code>follow_redirects</code> — Bool (default: true)</li>
+            <li><code>default_headers</code> — Hash of headers</li>
+          </ul>
+        </div>
+        <div class="doc-card glass">
+          <h3>Rake Tasks</h3>
+          <ul class="api-list">
+            <li><code>rake spidey:run</code> — Run all crawlers</li>
+            <li><code>rake spidey:run[name]</code> — Run specific crawler</li>
+            <li><code>rake spidey:list</code> — List crawlers</li>
+            <li><code>rake spidey:debug[name,url]</code> — Debug single URL</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="spider-icon">🕷</span>
+        <span class="logo-text">Spidey</span>
+        <span class="footer-version">v1.0.0</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://github.com/Parths-29/Spidey" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/Parths-29/Spidey/issues" target="_blank" rel="noopener">Issues</a>
+        <a href="https://github.com/Parths-29/Spidey/blob/main/LICENSE.txt" target="_blank" rel="noopener">MIT License</a>
+      </nav>
+      <p class="footer-copy">Built with ❤️ and Ruby · 2024</p>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
